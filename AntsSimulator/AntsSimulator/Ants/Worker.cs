@@ -14,7 +14,7 @@
             Direction randomDirection = Utils.GetRandomDirection();
             Coordinate targetPosition = Position.MoveTowards(randomDirection);
 
-            Position = Colony.TryMove(this, targetPosition);
+            Colony.TryMove(this, targetPosition);
         }
     }
 }

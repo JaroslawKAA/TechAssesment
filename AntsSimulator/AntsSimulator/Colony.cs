@@ -41,9 +41,9 @@ namespace AntsSimulator
         {
             Coordinate[] availablePositions = this.GetAvailablePositions();
             availablePositions = availablePositions.Shuffle().ToArray();
-            
+
             int positionIndex = 0;
-            
+
             for (int i = 0; i < dronesCount; i++)
             {
                 this[availablePositions[positionIndex]] = new Drone(availablePositions[positionIndex], this);
@@ -62,7 +62,7 @@ namespace AntsSimulator
                 positionIndex++;
             }
         }
-        
+
         private bool CanIMoveHere(Coordinate position)
         {
             // Check if given position is within borders
@@ -77,7 +77,6 @@ namespace AntsSimulator
             {
                 return false;
             }
-            
         }
 
         private Coordinate Move(Ant ant, Coordinate targetPosition)
@@ -92,11 +91,12 @@ namespace AntsSimulator
             return targetPosition;
         }
 
-        public Coordinate TryMove(Ant ant, Coordinate targetPosition)
+        public void TryMove(Ant ant, Coordinate targetPosition)
         {
-            return !CanIMoveHere(targetPosition)
-                ? ant.Position
-                : Move(ant, targetPosition);
+            if (CanIMoveHere(targetPosition))
+            {
+                Move(ant, targetPosition);
+            }
         }
 
         public Coordinate[] GetAvailablePositions(bool edgesOnly = false)
@@ -124,7 +124,7 @@ namespace AntsSimulator
 
             return availableEdgePositions.ToArray();
         }
-        
+
 
         public string Display()
         {
@@ -142,7 +142,6 @@ namespace AntsSimulator
                     {
                         sb.Append('.');
                     }
-                    
                 }
 
                 sb.Append('\n');

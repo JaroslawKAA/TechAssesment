@@ -16,7 +16,7 @@ namespace AntsSimulator.Ants
         public override void Act()
         {
             Coordinate targetPosition = Position.MoveTowards(_currentDirection);
-            Position = Colony.TryMove(this, targetPosition);
+            Colony.TryMove(this, targetPosition);
 
             _currentDirection = _currentDirection.RotateLeft();
         }
