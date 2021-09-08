@@ -2,14 +2,21 @@
 {
     public class Solder : Ant
     {
+        public override char Character => 'S';
+
+        private Direction _currentDirection;
+        
         public Solder(Coordinate position, Colony colony) : base(position, colony)
         {
+            _currentDirection = Utils.GetRandomDirection();
         }
 
-        public override char Character { get; }
         public override void OnUpdate()
         {
-            throw new System.NotImplementedException();
+            Coordinate targetPosition = Position.MoveTowards(_currentDirection);
+            Position = Colony.TryMove(this, targetPosition);
+
+            _currentDirection = _currentDirection.RotateLeft();
         }
     }
 }

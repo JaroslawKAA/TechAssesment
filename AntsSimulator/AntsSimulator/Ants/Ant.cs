@@ -2,7 +2,7 @@
 {
     public abstract class Ant
     {
-        public Coordinate Position { get; private set; }
+        public Coordinate Position { get; protected set; }
         
         protected Colony Colony { get; }
 

@@ -15,7 +15,7 @@ namespace AntsSimulator
             throw new NotImplementedException();
         }
 
-        public void TryMove(Ant ant, Coordinate coordinate)
+        public Coordinate TryMove(Ant ant, Coordinate coordinate)
         {
             throw new NotImplementedException();
         }

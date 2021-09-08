@@ -10,5 +10,12 @@ namespace AntsSimulator
         {
             Random = new Random();
         }
+
+        public static Direction GetRandomDirection()
+        {
+            Direction[] allDirections = (Direction[]) Enum.GetValues(typeof(Direction));
+            
+            return allDirections.GetRandomElement();
+        }
     }
 }
