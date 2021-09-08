@@ -1,20 +1,44 @@
-﻿namespace AntsSimulator.Ants
+﻿using System;
+
+namespace AntsSimulator.Ants
 {
     public class Queen : Ant
     {
-        public void AskToMate(Drone drone)
-        {
-            throw new System.NotImplementedException();
-        }
+        public override char Character => 'Q';
 
+        private int _moodCounter;
+        
         public Queen(Coordinate position, Colony colony) : base(position, colony)
         {
+            ResetMoodCounter();
         }
 
-        public override char Character { get; }
         public override void OnUpdate()
         {
-            throw new System.NotImplementedException();
+            if (_moodCounter > 0)
+            {
+                _moodCounter--;
+            }
+        }
+
+        public void AskToMate(Drone drone)
+        {
+            if (_moodCounter > 0)
+            {
+                // Queen wouldn't like to mate 
+                drone.KickAway();
+            }
+            else
+            {
+                // Queen would like to mate
+                drone.Mate();
+                ResetMoodCounter();
+            }
+        }
+
+        private void ResetMoodCounter()
+        {
+            _moodCounter = Utils.Random.Next(50, 101);
         }
     }
 }
