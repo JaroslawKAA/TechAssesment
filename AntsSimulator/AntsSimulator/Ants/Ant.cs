@@ -16,6 +16,6 @@
             Colony.Place();
         }
 
-        public abstract void OnUpdate();
+        public abstract void Act();
     }
 }

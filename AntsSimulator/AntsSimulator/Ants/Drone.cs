@@ -12,7 +12,7 @@ namespace AntsSimulator.Ants
         {
         }
 
-        public override void OnUpdate()
+        public override void Act()
         {
             if (_cooldownCounter > 0)
             {
@@ -42,7 +42,6 @@ namespace AntsSimulator.Ants
         public void Mate()
         {
             _cooldownCounter = 10;
-            Console.WriteLine("HALLELUJAH");
         }
 
         public void KickAway()

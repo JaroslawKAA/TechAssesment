@@ -11,7 +11,7 @@
             _currentDirection = Utils.GetRandomDirection();
         }
 
-        public override void OnUpdate()
+        public override void Act()
         {
             Coordinate targetPosition = Position.MoveTowards(_currentDirection);
             Position = Colony.TryMove(this, targetPosition);

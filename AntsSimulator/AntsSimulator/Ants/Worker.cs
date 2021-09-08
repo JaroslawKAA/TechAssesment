@@ -8,7 +8,7 @@
         {
         }
 
-        public override void OnUpdate()
+        public override void Act()
         {
             // Randomly select one direction and try to move
             Direction randomDirection = Utils.GetRandomDirection();

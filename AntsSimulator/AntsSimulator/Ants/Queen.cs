@@ -13,7 +13,7 @@ namespace AntsSimulator.Ants
             ResetMoodCounter();
         }
 
-        public override void OnUpdate()
+        public override void Act()
         {
             if (_moodCounter > 0)
             {
@@ -27,12 +27,14 @@ namespace AntsSimulator.Ants
             {
                 // Queen wouldn't like to mate 
                 drone.KickAway();
+                Console.WriteLine("Drone: :(");
             }
             else
             {
                 // Queen would like to mate
                 drone.Mate();
                 ResetMoodCounter();
+                Console.WriteLine("Drone: HALLELUJAH!");
             }
         }
 

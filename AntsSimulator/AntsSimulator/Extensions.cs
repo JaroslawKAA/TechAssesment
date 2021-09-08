@@ -20,5 +20,11 @@ namespace AntsSimulator
             Direction.East => Direction.North,
             _ => throw new ArgumentOutOfRangeException()
         };
+
+
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
+        {
+            return list.OrderBy(x => Utils.Random.Next());
+        }
     }
 }
