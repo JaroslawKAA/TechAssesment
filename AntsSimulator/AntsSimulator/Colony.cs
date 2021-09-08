@@ -66,7 +66,7 @@ namespace AntsSimulator
         private bool CanIMoveHere(Coordinate position)
         {
             // Check if given position is within borders
-            if (position.X < 0 && position.X >= Width && position.Y < 0 && position.Y >= Width)
+            if (position.X < 0 || position.X >= Width || position.Y < 0 || position.Y >= Width)
                 return false;
             try
             {
