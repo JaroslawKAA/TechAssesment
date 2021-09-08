@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.AntsSimulator.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Onedrive\Code Cool\Projects\Module 4\TechAssesment\AntsSimulator\.idea\.idea.AntsSimulator\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
