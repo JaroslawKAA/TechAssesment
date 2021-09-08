@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace AntsSimulator
 {
@@ -6,7 +7,16 @@ namespace AntsSimulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Colony colony = new Colony(20);
+            colony.GenerateAnts(0, 0, 1);
+            
+            while (true)
+            {
+                Console.Clear();
+                colony.Update();
+                Console.WriteLine(colony.Display());
+                Thread.Sleep(500);
+            }
         }
     }
 }

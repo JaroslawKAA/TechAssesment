@@ -32,9 +32,7 @@ namespace AntsSimulator
             {
                 for (int y = 0; y < Width; y++)
                 {
-                    Ant ant = _ants[y, x];
-
-                    ant?.Act();
+                    _ants[y, x]?.Act();
                 }
             }
         }
@@ -64,15 +62,22 @@ namespace AntsSimulator
                 positionIndex++;
             }
         }
-
+        
         private bool CanIMoveHere(Coordinate position)
         {
             // Check if given position is within borders
-            if (position.X < 0 || position.X >= Width || position.Y < 0 || position.Y >= Width)
+            if (position.X < 0 && position.X >= Width && position.Y < 0 && position.Y >= Width)
                 return false;
-
-            // Check if given position isn't already occupied
-            return _ants[position.Y, position.X] == null;
+            try
+            {
+                // Check if given position isn't already occupied
+                return _ants[position.Y, position.X] == null;
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                return false;
+            }
+            
         }
 
         private Coordinate Move(Ant ant, Coordinate targetPosition)
@@ -82,6 +87,7 @@ namespace AntsSimulator
             this[oldPosition] = null;
 
             this[targetPosition] = ant;
+            ant.Position = targetPosition;
 
             return targetPosition;
         }
@@ -107,7 +113,7 @@ namespace AntsSimulator
                         {
                             if ((x == 0 || x == Width - 1) && (y == 0 || y == Width - 1))
                             {
-                                throw new NotImplementedException();
+                                availableEdgePositions.Add(new Coordinate(x, y));
                             }
                         }
                         else
@@ -118,11 +124,7 @@ namespace AntsSimulator
 
             return availableEdgePositions.ToArray();
         }
-
-        public void Place()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public string Display()
         {
@@ -132,9 +134,15 @@ namespace AntsSimulator
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    Ant ant = _ants[y, x];
-
-                    sb.Append(ant?.Character ?? ' ');
+                    if (_ants[y, x] != null)
+                    {
+                        sb.Append(_ants[y, x].Character);
+                    }
+                    else
+                    {
+                        sb.Append('.');
+                    }
+                    
                 }
 
                 sb.Append('\n');

@@ -2,7 +2,7 @@
 {
     public abstract class Ant
     {
-        public Coordinate Position { get; protected set; }
+        public Coordinate Position { get; set; }
         
         protected Colony Colony { get; }
 
@@ -12,8 +12,6 @@
         {
             Position = position;
             Colony = colony;
-
-            Colony.Place();
         }
 
         public abstract void Act();

@@ -27,14 +27,14 @@ namespace AntsSimulator.Ants
             {
                 // Queen wouldn't like to mate 
                 drone.KickAway();
-                Console.WriteLine("Drone: :(");
+                // Console.WriteLine("Drone: :(");
             }
             else
             {
                 // Queen would like to mate
                 drone.Mate();
                 ResetMoodCounter();
-                Console.WriteLine("Drone: HALLELUJAH!");
+                // Console.WriteLine("Drone: HALLELUJAH!");
             }
         }
 

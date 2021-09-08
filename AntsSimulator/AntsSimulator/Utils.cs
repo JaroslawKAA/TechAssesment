@@ -2,11 +2,11 @@
 
 namespace AntsSimulator
 {
-    public class Utils
+    public static class Utils
     {
         public static Random Random;
 
-        public Utils()
+        static Utils()
         {
             Random = new Random();
         }

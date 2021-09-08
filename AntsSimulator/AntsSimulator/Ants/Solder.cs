@@ -1,4 +1,6 @@
-﻿namespace AntsSimulator.Ants
+﻿using System;
+
+namespace AntsSimulator.Ants
 {
     public class Solder : Ant
     {
