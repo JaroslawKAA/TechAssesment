@@ -8,7 +8,7 @@ namespace AntsSimulator
         static void Main(string[] args)
         {
             Colony colony = new Colony(20);
-            colony.GenerateAnts(0, 0, 1);
+            colony.GenerateAnts(5, 5, 5);
             
             while (true)
             {

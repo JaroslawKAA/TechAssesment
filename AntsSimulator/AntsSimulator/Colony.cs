@@ -79,7 +79,7 @@ namespace AntsSimulator
             }
         }
 
-        private Coordinate Move(Ant ant, Coordinate targetPosition)
+        private void Move(Ant ant, Coordinate targetPosition)
         {
             Coordinate oldPosition = ant.Position;
 
@@ -87,8 +87,6 @@ namespace AntsSimulator
 
             this[targetPosition] = ant;
             ant.Position = targetPosition;
-
-            return targetPosition;
         }
 
         public void TryMove(Ant ant, Coordinate targetPosition)
